@@ -1,0 +1,13 @@
+public class Solution{
+    public static int findKthSmallest(int[] nums, int k) {
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder()); // Max heap
+
+        for (int num : nums) {
+            maxHeap.add(num);
+            if (maxHeap.size() > k) {
+                maxHeap.poll(); // Remove the largest element
+            }
+        }
+        return maxHeap.peek(); // Root of the heap is the kth smallest element
+    }
+}
