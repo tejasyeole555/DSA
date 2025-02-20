@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+class Solution{
+  public static int BinarySearch(int num[],int n){
+    int si = 0;
+    int ei = num.length - 1;
+  
+    while(si<=ei){
+      int mid = (si+ei)/2;
+      if(num[mid]==n){
+        return mid;
+      }
+      if(num[mid] < n){
+      si = mid+1;
+      }
+      else{
+        ei = mid-1;
+      }
+    }
+    return -1;
+  }
+}
+
+public static void main(String[] args) {
+  int[] num = {3,7,4,9,6,0};
+
+  System.out.print("Enter a number :-");
+  int key = sc.nextInt();
+  int x = BinarySearch(numbers,key);
+  if(x == -1){
+    System.out.println("NOT found");
+  }
+  else {
+    System.out.println("Element index is "+x);
+  }
+}
