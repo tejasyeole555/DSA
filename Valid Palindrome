@@ -1,0 +1,25 @@
+class Solution {
+    public static boolean isPalindrome(String s) {
+        String empty = "";
+        // Convert uppercase to lowercase and save in empty string
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) {
+                if (c >= 'A' && c <= 'Z') {
+                    c = (char) (c + 32);
+                }
+                empty += c;
+            }
+        }
+        
+        int l = 0, r = empty.length() - 1;
+        while (l < r) {
+            if (empty.charAt(l) != empty.charAt(r)) {
+                return false;
+            }
+            l++;
+            r--;
+        }
+        return true;
+    }
+}
